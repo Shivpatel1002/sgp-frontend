@@ -118,44 +118,6 @@ const LawyerSettings = () => {
                 </CardContent>
               </Card>
 
-              {/* Security Settings */}
-              <Card className="shadow-soft border-0">
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2">
-                    <Shield className="h-5 w-5" />
-                    <span>Security & Privacy</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-medium">Two-Factor Authentication</h3>
-                      <p className="text-sm text-gray-600">Add an extra layer of security</p>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <Badge variant="secondary">Not Enabled</Badge>
-                      <Button variant="outline" size="sm">Enable</Button>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-medium">Login Activity</h3>
-                      <p className="text-sm text-gray-600">View recent login history</p>
-                    </div>
-                    <Button variant="outline" size="sm">View Activity</Button>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-medium">Profile Visibility</h3>
-                      <p className="text-sm text-gray-600">Control who can see your profile</p>
-                    </div>
-                    <Switch defaultChecked />
-                  </div>
-                </CardContent>
-              </Card>
-
             </div>
           </div>
         </main>
