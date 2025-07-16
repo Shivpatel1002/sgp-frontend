@@ -156,36 +156,6 @@ const LawyerSettings = () => {
                 </CardContent>
               </Card>
 
-              {/* Danger Zone */}
-              <Card className="shadow-soft border-0 border-red-200">
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-2 text-red-600">
-                    <Trash2 className="h-5 w-5" />
-                    <span>Danger Zone</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-medium text-red-600">Deactivate Account</h3>
-                      <p className="text-sm text-gray-600">Temporarily disable your account</p>
-                    </div>
-                    <Button variant="outline" className="text-red-600 border-red-300 hover:bg-red-50">
-                      Deactivate
-                    </Button>
-                  </div>
-                  
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-medium text-red-600">Delete Account</h3>
-                      <p className="text-sm text-gray-600">Permanently delete your account and data</p>
-                    </div>
-                    <Button variant="destructive">
-                      Delete Account
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
         </main>
