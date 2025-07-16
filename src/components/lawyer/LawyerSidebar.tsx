@@ -36,7 +36,6 @@ export const LawyerSidebar = ({ currentPage, setCurrentPage }: LawyerSidebarProp
     { id: 'clients', label: 'Clients', icon: Users, path: '/lawyer-clients' },
     { id: 'messages', label: 'Messages', icon: MessageCircle, path: '/lawyer-messages' },
     { id: 'video-calls', label: 'Video Calls', icon: Video, path: '/lawyer-video-calls' },
-    { id: 'documents', label: 'Documents', icon: FileText, path: '/lawyer-documents' },
     { id: 'profile', label: 'Profile', icon: User, path: '/lawyer-profile' },
     { id: 'payments', label: 'Payments', icon: CreditCard, path: '/lawyer-payments' },
     { id: 'reviews', label: 'Reviews', icon: Star, path: '/lawyer-reviews' },
