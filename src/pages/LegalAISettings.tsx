@@ -44,8 +44,8 @@ const LegalAISettings = () => {
               </Button>
             </Link>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <Scale className="h-5 w-5 text-primary-foreground" />
+              <div className="w-8 h-8 bg-teal rounded-lg flex items-center justify-center">
+                <Scale className="h-5 w-5 text-white" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-foreground">Legal AI Settings</h1>
@@ -86,9 +86,10 @@ const LegalAISettings = () => {
                       Switch between light and dark themes
                     </p>
                   </div>
-                  <Switch
+                   <Switch
                     checked={settings.darkMode}
                     onCheckedChange={(checked) => handleSettingChange('darkMode', checked)}
+                    className="data-[state=checked]:bg-teal"
                   />
                 </div>
 
@@ -101,9 +102,10 @@ const LegalAISettings = () => {
                       Automatically save your chat history
                     </p>
                   </div>
-                  <Switch
+                   <Switch
                     checked={settings.autoSave}
                     onCheckedChange={(checked) => handleSettingChange('autoSave', checked)}
+                    className="data-[state=checked]:bg-teal"
                   />
                 </div>
               </CardContent>
@@ -152,8 +154,8 @@ const LegalAISettings = () => {
         </Tabs>
 
         {/* Save Button */}
-        <div className="flex justify-end pt-12 mt-12">
-          <Button onClick={handleSave} className="px-8 py-2">
+        <div className="flex justify-end pt-6 mt-6">
+          <Button onClick={handleSave} className="bg-teal hover:bg-teal-light text-white px-8 py-2">
             Save Settings
           </Button>
         </div>
