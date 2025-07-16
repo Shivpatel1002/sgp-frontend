@@ -170,15 +170,6 @@ const LawyerClients = () => {
                         size="sm" 
                         variant="outline" 
                         className="flex-1"
-                        onClick={() => handleCallClient(client.id, client.phone)}
-                        title="Call Client"
-                      >
-                        <Phone className="h-4 w-4" />
-                      </Button>
-                      <Button 
-                        size="sm" 
-                        variant="outline" 
-                        className="flex-1"
                         onClick={() => handleViewDocuments(client.id)}
                         title="View Documents"
                       >
