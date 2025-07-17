@@ -5,13 +5,25 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { User, Mail, Phone, MapPin, Award, Calendar } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Award, Calendar, Camera } from 'lucide-react';
 import { LawyerSidebar } from '@/components/lawyer/LawyerSidebar';
 import { LawyerTopBar } from '@/components/lawyer/LawyerTopBar';
 import AvailabilityManager from '@/components/lawyer/AvailabilityManager';
 
 const LawyerProfile = () => {
   const [currentPage, setCurrentPage] = useState('profile');
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setProfileImage(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 flex">
@@ -35,8 +47,27 @@ const LawyerProfile = () => {
                   {/* Profile Card */}
                   <Card className="shadow-soft border-0 lg:col-span-1">
                     <CardContent className="p-6 text-center">
-                      <div className="w-24 h-24 bg-teal rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span className="text-white text-2xl font-bold">DS</span>
+                      <div className="relative w-24 h-24 mx-auto mb-4">
+                        <div className="w-24 h-24 bg-teal rounded-full flex items-center justify-center overflow-hidden">
+                          {profileImage ? (
+                            <img 
+                              src={profileImage} 
+                              alt="Profile" 
+                              className="w-full h-full object-cover"
+                            />
+                          ) : (
+                            <span className="text-white text-2xl font-bold">DS</span>
+                          )}
+                        </div>
+                        <label className="absolute -bottom-1 -right-1 w-8 h-8 bg-white rounded-full shadow-lg border border-gray-200 flex items-center justify-center cursor-pointer hover:bg-gray-50 transition-colors">
+                          <Camera className="h-4 w-4 text-gray-600" />
+                          <input 
+                            type="file" 
+                            accept="image/*" 
+                            onChange={handleImageUpload}
+                            className="hidden"
+                          />
+                        </label>
                       </div>
                       <h2 className="text-xl font-semibold text-navy mb-2">Dr. Sarah Smith</h2>
                       <p className="text-gray-600 mb-4">Family Law Specialist</p>
