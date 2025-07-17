@@ -8,9 +8,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Eye, EyeOff, Mail, Lock, User, Phone, MapPin } from 'lucide-react';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [userType, setUserType] = useState('user');
@@ -37,31 +39,24 @@ const Signup = () => {
       return;
     }
     
-    // Prepare user data
+    // Create user data
     const userData = {
       firstName,
       lastName,
       email,
-      phone,
-      ...(userType === 'lawyer' && { 
-        specialization, 
-        experience, 
-        location, 
-        bio, 
-        barNumber 
-      })
+      userType: userType as 'user' | 'lawyer'
     };
     
-    // Handle signup logic here
-    console.log('Signup attempt:', { ...userData, userType });
+    // Auto-login the user after successful signup
+    login(userData);
+    console.log('Signup successful:', userData);
     
-    // Navigate to OTP verification page with user data
-    navigate('/otp-verification', {
-      state: {
-        userData,
-        userType
-      }
-    });
+    // Redirect based on user type
+    if (userType === 'lawyer') {
+      navigate('/lawyer-dashboard');
+    } else {
+      navigate('/');
+    }
   };
 
   return (

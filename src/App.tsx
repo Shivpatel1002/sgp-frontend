@@ -1,9 +1,9 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import Index from "./pages/Index";
@@ -40,160 +40,162 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <div className="min-h-screen flex flex-col bg-background">
-          <Routes>
-            {/* Public Routes with Navbar */}
-            <Route path="/" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <Index />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/about" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <About />
-                </main>
-                <Footer />
-              </>
-            } />
-            {/* Chatbot Route without Footer */}
-            <Route path="/chatbot" element={<Chatbot />} />
-            {/* Chatbot Settings Route without Navbar/Footer */}
-            <Route path="/chatbot-settings" element={<ChatbotSettings />} />
-            {/* Legal AI Settings Route without Navbar/Footer */}
-            <Route path="/legal-ai-settings" element={<LegalAISettings />} />
-            <Route path="/lawsimplify" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <LawSimplify />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/document-qa" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <DocumentQA />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/find-lawyer" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <FindLawyer />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/lawyer/:id" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <PublicLawyerProfile />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/booking/:lawyerId" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <AppointmentBooking />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/chat/:lawyerId" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <ChatWithLawyer />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/video-call/:sessionId" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <VideoCall />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/contact" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <Contact />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/login" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <Login />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/signup" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <Signup />
-                </main>
-                <Footer />
-              </>
-            } />
-            <Route path="/otp-verification" element={
-              <>
-                <main className="flex-1">
-                  <OtpVerification />
-                </main>
-              </>
-            } />
-            
-            {/* Lawyer Panel Routes (No Navbar/Footer) */}
-            <Route path="/lawyer-dashboard" element={<LawyerDashboard />} />
-            <Route path="/lawyer-appointments" element={<LawyerAppointments />} />
-            <Route path="/lawyer-all-appointments" element={<LawyerAllAppointments />} />
-            <Route path="/lawyer-clients" element={<LawyerClients />} />
-            <Route path="/lawyer-messages" element={<LawyerMessages />} />
-            <Route path="/lawyer-video-calls" element={<LawyerVideoCalls />} />
-            <Route path="/lawyer-documents" element={<LawyerDocuments />} />
-            <Route path="/lawyer-profile" element={<LawyerProfile />} />
-            <Route path="/lawyer-payments" element={<LawyerPayments />} />
-            <Route path="/lawyer-reviews" element={<LawyerReviews />} />
-            <Route path="/lawyer-settings" element={<LawyerSettings />} />
-            
-            {/* 404 Route */}
-            <Route path="*" element={
-              <>
-                <Navbar />
-                <main className="flex-1">
-                  <NotFound />
-                </main>
-                <Footer />
-              </>
-            } />
-          </Routes>
-        </div>
-      </BrowserRouter>
+      <AuthProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <div className="min-h-screen flex flex-col bg-background">
+            <Routes>
+              {/* Public Routes with Navbar */}
+              <Route path="/" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <Index />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/about" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <About />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              {/* Chatbot Route without Footer */}
+              <Route path="/chatbot" element={<Chatbot />} />
+              {/* Chatbot Settings Route without Navbar/Footer */}
+              <Route path="/chatbot-settings" element={<ChatbotSettings />} />
+              {/* Legal AI Settings Route without Navbar/Footer */}
+              <Route path="/legal-ai-settings" element={<LegalAISettings />} />
+              <Route path="/lawsimplify" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <LawSimplify />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/document-qa" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <DocumentQA />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/find-lawyer" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <FindLawyer />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/lawyer/:id" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <PublicLawyerProfile />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/booking/:lawyerId" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <AppointmentBooking />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/chat/:lawyerId" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <ChatWithLawyer />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/video-call/:sessionId" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <VideoCall />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/contact" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <Contact />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/login" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <Login />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/signup" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <Signup />
+                  </main>
+                  <Footer />
+                </>
+              } />
+              <Route path="/otp-verification" element={
+                <>
+                  <main className="flex-1">
+                    <OtpVerification />
+                  </main>
+                </>
+              } />
+              
+              {/* Lawyer Panel Routes (No Navbar/Footer) */}
+              <Route path="/lawyer-dashboard" element={<LawyerDashboard />} />
+              <Route path="/lawyer-appointments" element={<LawyerAppointments />} />
+              <Route path="/lawyer-all-appointments" element={<LawyerAllAppointments />} />
+              <Route path="/lawyer-clients" element={<LawyerClients />} />
+              <Route path="/lawyer-messages" element={<LawyerMessages />} />
+              <Route path="/lawyer-video-calls" element={<LawyerVideoCalls />} />
+              <Route path="/lawyer-documents" element={<LawyerDocuments />} />
+              <Route path="/lawyer-profile" element={<LawyerProfile />} />
+              <Route path="/lawyer-payments" element={<LawyerPayments />} />
+              <Route path="/lawyer-reviews" element={<LawyerReviews />} />
+              <Route path="/lawyer-settings" element={<LawyerSettings />} />
+              
+              {/* 404 Route */}
+              <Route path="*" element={
+                <>
+                  <Navbar />
+                  <main className="flex-1">
+                    <NotFound />
+                  </main>
+                  <Footer />
+                </>
+              } />
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </AuthProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );
