@@ -149,7 +149,6 @@ const App = () => (
                   <main className="flex-1">
                     <Login />
                   </main>
-                  <Footer />
                 </>
               } />
               <Route path="/signup" element={
@@ -158,7 +157,6 @@ const App = () => (
                   <main className="flex-1">
                     <Signup />
                   </main>
-                  <Footer />
                 </>
               } />
               <Route path="/otp-verification" element={
