@@ -12,14 +12,18 @@ import AvailabilityManager from '@/components/lawyer/AvailabilityManager';
 
 const LawyerProfile = () => {
   const [currentPage, setCurrentPage] = useState('profile');
-  const [profileImage, setProfileImage] = useState<string | null>(null);
+  const [profileImage, setProfileImage] = useState<string | null>(() => {
+    return localStorage.getItem('lawyerProfileImage');
+  });
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        setProfileImage(e.target?.result as string);
+        const imageUrl = e.target?.result as string;
+        setProfileImage(imageUrl);
+        localStorage.setItem('lawyerProfileImage', imageUrl);
       };
       reader.readAsDataURL(file);
     }

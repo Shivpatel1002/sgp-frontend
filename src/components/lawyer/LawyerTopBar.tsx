@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Bell, ChevronDown, User, Settings, LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -5,6 +6,25 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Link } from 'react-router-dom';
 
 export const LawyerTopBar = () => {
+  const [profileImage, setProfileImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedImage = localStorage.getItem('lawyerProfileImage');
+    setProfileImage(storedImage);
+    
+    // Listen for storage changes to update the image in real-time
+    const handleStorageChange = () => {
+      const updatedImage = localStorage.getItem('lawyerProfileImage');
+      setProfileImage(updatedImage);
+    };
+    
+    window.addEventListener('storage', handleStorageChange);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
+
   const notifications = [
     {
       id: 1,
@@ -90,11 +110,17 @@ export const LawyerTopBar = () => {
           <Popover>
             <PopoverTrigger asChild>
               <div className="flex items-center space-x-3 cursor-pointer hover:bg-gray-50 rounded-lg p-2 transition-colors">
-                <img
-                  src="/placeholder.svg"
-                  alt="Profile"
-                  className="w-8 h-8 rounded-full object-cover"
-                />
+                <div className="w-8 h-8 rounded-full overflow-hidden bg-teal flex items-center justify-center">
+                  {profileImage ? (
+                    <img
+                      src={profileImage}
+                      alt="Profile"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-white text-sm font-bold">DS</span>
+                  )}
+                </div>
                 <div className="hidden md:block">
                   <p className="text-sm font-medium text-navy">Dr. Sarah Smith</p>
                   <p className="text-xs text-gray-600">Family Law</p>
