@@ -146,7 +146,7 @@ const Chatbot = () => {
                 variant="ghost"
                 size="icon"
                 onClick={toggleSidebar}
-                className="hidden lg:flex h-8 w-8 hover:bg-gray-100 flex-shrink-0 ml-auto"
+                className="hidden lg:flex h-8 w-8 hover:bg-gray-100 flex-shrink-0"
               >
                 {sidebarCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
               </Button>
