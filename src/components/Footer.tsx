@@ -1,9 +1,6 @@
-
 import { Link } from 'react-router-dom';
-
 export const Footer = () => {
-  return (
-    <footer className="bg-navy text-white">
+  return <footer className="bg-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Quick Links */}
@@ -45,9 +42,7 @@ export const Footer = () => {
               <a href="#" className="text-gray-300 hover:text-teal transition-colors">LinkedIn</a>
               <a href="#" className="text-gray-300 hover:text-teal transition-colors">GitHub</a>
             </div>
-            <p className="text-sm text-gray-400">
-              © 2024 LawMate. All rights reserved.
-            </p>
+            <p className="text-sm text-gray-400">© 2025 LawMate. All rights reserved.</p>
           </div>
         </div>
 
@@ -59,6 +54,5 @@ export const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
