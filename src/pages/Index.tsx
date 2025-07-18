@@ -34,8 +34,8 @@ const Index = () => {
 
   const faqs = [
     {
-      question: "What is LegalGPT and how does it work?",
-      answer: "LegalGPT is an AI-powered legal assistant that helps users understand legal documents, simplify complex legal language, and connect with qualified lawyers. Our AI analyzes your legal questions and provides clear, understandable explanations."
+      question: "What is LawMate and how does it work?",
+      answer: "LawMate is an AI-powered legal assistant that helps users understand legal documents, simplify complex legal language, and connect with qualified lawyers. Our AI analyzes your legal questions and provides clear, understandable explanations."
     },
     {
       question: "Can I trust the AI legal advice?",
@@ -83,7 +83,7 @@ const Index = () => {
       name: "Sarah Johnson",
       role: "Small Business Owner",
       rating: 5,
-      comment: "LegalGPT helped me understand my contract terms clearly. The AI explanations were spot-on and saved me hours of confusion."
+      comment: "LawMate helped me understand my contract terms clearly. The AI explanations were spot-on and saved me hours of confusion."
     },
     {
       name: "Michael Chen",
@@ -115,7 +115,7 @@ const Index = () => {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-navy mb-6 leading-tight">
-            Welcome to LegalGPT
+            Welcome to LawMate
             <span className="block text-teal">Your Intelligent Legal Companion</span>
           </h1>
           
@@ -154,7 +154,7 @@ const Index = () => {
                   </div>
                   <div className="flex-1">
                     <p className="text-gray-800">
-                      Hello! I'm LegalGPT, your AI legal assistant. I can help you understand legal concepts, 
+                      Hello! I'm LawMate, your AI legal assistant. I can help you understand legal concepts, 
                       analyze documents, and answer questions about various areas of law. What would you like to know?
                     </p>
                   </div>

@@ -31,15 +31,15 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">About LegalGPT</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-navy mb-6">About LawMate</h1>
           <div className="max-w-3xl mx-auto">
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
-              LegalGPT is revolutionizing how people access legal information and connect with legal professionals. 
+              LawMate is revolutionizing how people access legal information and connect with legal professionals. 
               Our AI-powered platform makes legal assistance accessible, affordable, and understandable for everyone.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
               Whether you're dealing with contracts, need legal advice, or want to understand complex legal documents, 
-              LegalGPT provides the tools and connections you need to navigate the legal landscape with confidence.
+              LawMate provides the tools and connections you need to navigate the legal landscape with confidence.
             </p>
           </div>
         </div>

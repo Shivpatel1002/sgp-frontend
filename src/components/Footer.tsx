@@ -33,7 +33,7 @@ export const Footer = () => {
             <h3 className="font-semibold text-lg mb-4">Contact</h3>
             <ul className="space-y-2">
               <li><Link to="/contact" className="text-gray-300 hover:text-teal transition-colors">Contact Us</Link></li>
-              <li><span className="text-gray-300">support@legalgpt.com</span></li>
+              <li><span className="text-gray-300">support@lawmate.com</span></li>
               <li><span className="text-gray-300">1-800-LEGAL-AI</span></li>
             </ul>
           </div>
@@ -46,7 +46,7 @@ export const Footer = () => {
               <a href="#" className="text-gray-300 hover:text-teal transition-colors">GitHub</a>
             </div>
             <p className="text-sm text-gray-400">
-              © 2024 LegalGPT. All rights reserved.
+              © 2024 LawMate. All rights reserved.
             </p>
           </div>
         </div>
