@@ -220,13 +220,6 @@ const Chatbot = () => {
                   <Settings className="h-4 w-4 text-gray-600 flex-shrink-0" />
                   <span className="text-sm text-gray-900 font-medium">Settings</span>
                 </Link>
-                <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 cursor-pointer w-full">
-                  <User className="h-4 w-4 text-gray-600 flex-shrink-0" />
-                  <div className="flex flex-col min-w-0 flex-1">
-                    <span className="text-sm text-gray-900 font-medium truncate">{currentUser.name}</span>
-                    <span className="text-xs text-gray-600 truncate">{currentUser.email}</span>
-                  </div>
-                </div>
               </div>
             </>
           )}
@@ -269,14 +262,6 @@ const Chatbot = () => {
                     <Settings className="h-4 w-4 text-gray-600" />
                   </Button>
                 </Link>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
-                  className="w-10 h-10 hover:bg-gray-100" 
-                  title={currentUser.name}
-                >
-                  <User className="h-4 w-4 text-gray-600" />
-                </Button>
               </div>
             </div>
           )}
