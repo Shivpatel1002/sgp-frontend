@@ -120,6 +120,18 @@ const Chatbot = () => {
           />
         )}
 
+        {/* Desktop Toggle Button - Outside Sidebar */}
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={toggleSidebar}
+          className={`hidden lg:flex h-8 w-8 hover:bg-gray-100 flex-shrink-0 absolute top-4 z-50 bg-white border border-gray-200 shadow-sm ${
+            sidebarCollapsed ? 'left-20' : 'left-[21rem]'
+          } transition-all duration-300`}
+        >
+          {sidebarCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
+        </Button>
+
         {/* Sidebar */}
         <div className={`
           ${sidebarCollapsed ? 'w-16' : 'w-80'} 
@@ -140,16 +152,6 @@ const Chatbot = () => {
                   )}
                 </Link>
               </div>
-              
-              {/* Desktop Toggle Button */}
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleSidebar}
-                className="hidden lg:flex h-8 w-8 hover:bg-gray-100 flex-shrink-0"
-              >
-                {sidebarCollapsed ? <ChevronRight className="h-4 w-4" /> : <ChevronLeft className="h-4 w-4" />}
-              </Button>
               
               {/* Mobile Close Button */}
               <Button
